@@ -12,6 +12,13 @@ echo -e "${END}"
 sleep 1
 
 
+if [ ! -d "$HOME/.ssh" ] 
+then
+    echo "Directory $HOME/.ssh DOES NOT exists." 
+    echo "Creating directory......"
+    mkdir $HOME/.ssh
+fi
+
 filename="Back_up_`date +%d_%m_%y_%H_%M_%S`.tar"
 echo "Enter the path where you want to copy your back-up locally :"
 read lpath
