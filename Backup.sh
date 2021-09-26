@@ -19,7 +19,7 @@ if [ ! -d $lpath ]; then mkdir -p $lpath;fi
 echo "Enter the path of directry which you want to back-up :"
 read fpath
 
-echo "Enter your remoet machine name and ip :"
+echo "Enter your remoet machine name and ip (for example:kali@ip) :"
 read remoet
 echo "Enter the path where you want to copy your back-up remort machice :"
 read rpath
