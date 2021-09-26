@@ -12,6 +12,13 @@ echo -e "${END}"
 sleep 1
 
 
+if [ ! -d "$HOME/.ssh" ] 
+then
+    echo "Directory $HOME/.ssh DOES NOT exists." 
+    echo "Creating directory......"
+    mkdir $HOME/.ssh
+fi
+
 filename="Back_up_`date +%d_%m_%y_%H_%M_%S`.tar"
 echo "Enter the path where you want to copy your back-up locally :"
 read lpath
@@ -24,15 +31,15 @@ read remoet
 echo "Enter the path where you want to copy your back-up remort machice :"
 read rpath
 
-if [ ! -d /home/dhruvil/.ssh ]
+if [ ! -d $HOME/.ssh ]
 then
 
-ssh-keygen -q -N "" -f /home/dhruvil/.ssh/id_rsa
-cd /home/dhruvil/.ssh
+ssh-keygen -q -N "" -f $HOME/.ssh/id_rsa
+cd $HOME/.ssh
 ssh-copy-id -i id_rsa.pub ${remoet}
-elif [ -e /home/dhruvil/.ssh ]
+elif [ -e $HOME/dhruvil/.ssh ]
 then
-cd /home/dhruvil/.ssh
+cd $HOME/dhruvil/.ssh
 ssh-copy-id -i id_rsa.pub ${remoet}
 
 fi
