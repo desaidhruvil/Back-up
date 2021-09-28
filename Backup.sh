@@ -24,15 +24,14 @@ read remoet
 echo "Enter the path where you want to copy your back-up remort machice :"
 read rpath
 
-if [ ! -d /home/dhruvil/.ssh ]
+if [ ! -d $HOME/.ssh ]
 then
-
-ssh-keygen -q -N "" -f /home/dhruvil/.ssh/id_rsa
-cd /home/dhruvil/.ssh
+ssh-keygen -q -N "" -f $HOME/.ssh/id_rsa
+cd $HOME/.ssh
 ssh-copy-id -i id_rsa.pub ${remoet}
-elif [ -e /home/dhruvil/.ssh ]
+elif [ -e $HOME/.ssh ]
 then
-cd /home/dhruvil/.ssh
+cd $HOME/.ssh
 ssh-copy-id -i id_rsa.pub ${remoet}
 
 fi
